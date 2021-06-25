@@ -20,4 +20,6 @@ export interface ILeathermanAppConfig {
     apiKey?: string;
     /** The endpoint used for base user services */
     userBaseEndpoint: string;
+    /** Store to save the token: localStorage/sessionStorage */
+    store?: string;
 }

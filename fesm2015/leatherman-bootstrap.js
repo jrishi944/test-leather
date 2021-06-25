@@ -8,6 +8,7 @@ import { HttpClientModule, HttpHeaders, HttpEventType, HttpClient } from '@angul
 import { ReactiveFormsModule } from '@angular/forms';
 import { RouterModule, Router, NavigationEnd, ActivatedRoute } from '@angular/router';
 import { NgbActiveModal, NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { SessionState as SessionState$1 } from 'projects/leatherman-bootstrap/src/public-api';
 import { JwtHelperService } from '@auth0/angular-jwt';
 import { isEqual, cloneDeep, slice } from 'lodash';
 import { plainToClass } from 'class-transformer';
@@ -534,6 +535,11 @@ var Status;
     /** A server error occurred */
     Status[Status["Error"] = 500] = "Error";
 })(Status || (Status = {}));
+var SessionState;
+(function (SessionState) {
+    SessionState["LocalStorage"] = "local-storage";
+    SessionState["SessionStorage"] = "session-storage";
+})(SessionState || (SessionState = {}));
 
 /**
  * Enumeration representing test artifact states
@@ -1303,8 +1309,15 @@ let BaseDataService = class BaseDataService {
     }
     /** Get acccessor for the header to use when the API endpoit is secured with a JWT token */
     get authHeader() {
-        const localStorageToken = localStorage.getItem(this.config.jwtTokenName);
-        const token = localStorageToken ? 'Bearer ' + localStorageToken : '';
+        let storageToken = '';
+        const store = this.config.store || SessionState$1.LocalStorage;
+        if (SessionState$1.SessionStorage === store) {
+            storageToken = sessionStorage.getItem(this.config.jwtTokenName);
+        }
+        else {
+            storageToken = localStorage.getItem(this.config.jwtTokenName);
+        }
+        const token = storageToken ? 'Bearer ' + storageToken : '';
         const authHeader = new HttpHeaders({
             Authorization: token,
             'Content-Type': 'application/json',
@@ -1973,6 +1986,7 @@ let AuthenticationService = class AuthenticationService {
         this.authenticationDataService = authenticationDataService;
         /** Reference to the JWT helper service */
         this.jwtHelper = new JwtHelperService();
+        this.store = config.store || SessionState$1.LocalStorage;
     }
     // **********************
     // * Private properties
@@ -1980,13 +1994,23 @@ let AuthenticationService = class AuthenticationService {
     /** Get accessor for the JWT token */
     get token() {
         if (!this._token) {
-            this._token = this.getTokenFromLocalStorage();
+            if (this.store === SessionState$1.SessionStorage) {
+                this._token = this.getTokenFromSessionStorage();
+            }
+            else {
+                this._token = this.getTokenFromLocalStorage();
+            }
         }
         return this._token;
     }
     /** Set accessor for the JWT token */
     set token(token) {
-        this.setLocalStorage(token);
+        if (this.store === SessionState$1.SessionStorage) {
+            this.setSessionStorage(token);
+        }
+        else {
+            this.setLocalStorage(token);
+        }
         this._token = token;
     }
     // **********************
@@ -2009,7 +2033,12 @@ let AuthenticationService = class AuthenticationService {
      */
     clearToken() {
         this._token = '';
-        this.clearLocalStorage();
+        if (this.store === SessionState$1.LocalStorage) {
+            this.clearLocalStorage();
+        }
+        else {
+            this.clearSessionStorage();
+        }
     }
     /**
      * Get the user's primary role
@@ -2110,7 +2139,12 @@ let AuthenticationService = class AuthenticationService {
      * @param token - The JWT token
      */
     setToken(token) {
-        this.setLocalStorage(token);
+        if (this.store === SessionState$1.LocalStorage) {
+            this.setLocalStorage(token);
+        }
+        else {
+            this.setSessionStorage(token);
+        }
         this._token = token;
     }
     // **********************
@@ -2121,6 +2155,12 @@ let AuthenticationService = class AuthenticationService {
      */
     clearLocalStorage() {
         localStorage.removeItem(this.config.jwtTokenName);
+    }
+    /**
+     * Remove the JWT token from session storage
+     */
+    clearSessionStorage() {
+        sessionStorage.removeItem(this.config.jwtTokenName);
     }
     /**
      * Get the JWT token from local storage
@@ -2134,11 +2174,29 @@ let AuthenticationService = class AuthenticationService {
         return token;
     }
     /**
+     * Get the JWT token from session storage
+     * @returns The JWT token
+     */
+    getTokenFromSessionStorage() {
+        const token = sessionStorage.getItem(this.config.jwtTokenName);
+        if (!token) {
+            return '';
+        }
+        return token;
+    }
+    /**
      * Save the JWT token to local storage
      * @param token - The JWT token
      */
     setLocalStorage(token) {
         localStorage.setItem(this.config.jwtTokenName, token);
+    }
+    /**
+     * Save the JWT token to session storage
+     * @param token - The JWT token
+     */
+    setSessionStorage(token) {
+        sessionStorage.setItem(this.config.jwtTokenName, token);
     }
 };
 AuthenticationService.ctorParameters = () => [
@@ -3989,5 +4047,5 @@ const validateStrongPassword = (control) => {
  * Generated bundle index. Do not edit.
  */
 
-export { AdminAuthGuardService, ArrayDto, AuthenticationDataService, AuthenticationDetails, AuthenticationService, AuthenticationTokenExpiry, BaseComponent, BaseComponentUIService, BaseDataService, BaseModel, BaseNewUserRequest, BasePasswordResetRequest, BaseService, BaseUser, BaseUserDataService, BaseUserService, ClientErrorReport, CollectionUtil, ConfirmDialogComponent, ConfirmDialogData, ConfirmDialogService, ConfirmDialogServiceInjectionToken, CustomErrorHandlerService, DialogButton, DialogResult, Dto, DtoStatusContainer, ErrorDialogComponent, ErrorDialogData, ErrorDialogService, ErrorDialogServiceInjectionToken, FilterCase, FilterOptions, FilterScope, GetOptions, ISO_DATE_REGEX, ItemDto, LATITUDE_REGEX, LONGITUDE_REGEX, LeathermanAppConfigInjectionToken, LeathermanModule, LoginRequest, MatDialogMock, MixinUtil, MockConfirmDialogService, MockErrorDialogService, ObjectCopyUtil, Options, PHONE_NUMBER_REGEX, PaginatorUtil, Parameter, Parameters, RegexUtil, RoutePartsService, STATE_ABBREVIATIONS, STRONG_PASSWORD_REGEX, SafeHtmlPipe, SearchFacetField, SearchFacetFilter, SearchFacetFilterProperties, SearchFacetOptions, SearchFacetRangeFilter, SearchFacetRangeFilterProperties, SearchFacetRangeQuery, SearchMatchFilter, SearchOptions, SearchRangeFilter, SearchResultFacet, SearchResultFacetItem, SearchResultMeta, SearchResultRequest, SearchResultsContainer, SearchResultsDto, Secure, ShortIdUtil, Sort, SortOption, Status, TestArtifact, URL_REGEX, Unique, UniqueMode, UploadEvent, UrlUtil, UserAuthGuardService, ValidatePasswordResetTokenResponse, ValidateVerifyEmailTokenResponse, ZIP_CODE_REGEX, validateStrongPassword, AngularModule as ɵa };
+export { AdminAuthGuardService, ArrayDto, AuthenticationDataService, AuthenticationDetails, AuthenticationService, AuthenticationTokenExpiry, BaseComponent, BaseComponentUIService, BaseDataService, BaseModel, BaseNewUserRequest, BasePasswordResetRequest, BaseService, BaseUser, BaseUserDataService, BaseUserService, ClientErrorReport, CollectionUtil, ConfirmDialogComponent, ConfirmDialogData, ConfirmDialogService, ConfirmDialogServiceInjectionToken, CustomErrorHandlerService, DialogButton, DialogResult, Dto, DtoStatusContainer, ErrorDialogComponent, ErrorDialogData, ErrorDialogService, ErrorDialogServiceInjectionToken, FilterCase, FilterOptions, FilterScope, GetOptions, ISO_DATE_REGEX, ItemDto, LATITUDE_REGEX, LONGITUDE_REGEX, LeathermanAppConfigInjectionToken, LeathermanModule, LoginRequest, MatDialogMock, MixinUtil, MockConfirmDialogService, MockErrorDialogService, ObjectCopyUtil, Options, PHONE_NUMBER_REGEX, PaginatorUtil, Parameter, Parameters, RegexUtil, RoutePartsService, STATE_ABBREVIATIONS, STRONG_PASSWORD_REGEX, SafeHtmlPipe, SearchFacetField, SearchFacetFilter, SearchFacetFilterProperties, SearchFacetOptions, SearchFacetRangeFilter, SearchFacetRangeFilterProperties, SearchFacetRangeQuery, SearchMatchFilter, SearchOptions, SearchRangeFilter, SearchResultFacet, SearchResultFacetItem, SearchResultMeta, SearchResultRequest, SearchResultsContainer, SearchResultsDto, Secure, SessionState, ShortIdUtil, Sort, SortOption, Status, TestArtifact, URL_REGEX, Unique, UniqueMode, UploadEvent, UrlUtil, UserAuthGuardService, ValidatePasswordResetTokenResponse, ValidateVerifyEmailTokenResponse, ZIP_CODE_REGEX, validateStrongPassword, AngularModule as ɵa };
 //# sourceMappingURL=leatherman-bootstrap.js.map

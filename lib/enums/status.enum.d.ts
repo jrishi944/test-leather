@@ -19,3 +19,7 @@ export declare enum Status {
     /** A server error occurred */
     Error = 500
 }
+export declare enum SessionState {
+    LocalStorage = "local-storage",
+    SessionStorage = "session-storage"
+}

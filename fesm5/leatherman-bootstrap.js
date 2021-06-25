@@ -8,6 +8,7 @@ import { HttpClientModule, HttpHeaders, HttpEventType, HttpClient } from '@angul
 import { ReactiveFormsModule } from '@angular/forms';
 import { RouterModule, Router, NavigationEnd, ActivatedRoute } from '@angular/router';
 import { NgbActiveModal, NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { SessionState as SessionState$1 } from 'projects/leatherman-bootstrap/src/public-api';
 import { JwtHelperService } from '@auth0/angular-jwt';
 import { isEqual, cloneDeep, slice } from 'lodash';
 import { plainToClass } from 'class-transformer';
@@ -16,11 +17,6 @@ import { generate } from 'shortid';
 /**
  * Base Leatherman component
  */
-import * as ɵngcc0 from '@angular/core';
-import * as ɵngcc1 from '@angular/platform-browser';
-import * as ɵngcc2 from '@ng-bootstrap/ng-bootstrap';
-import * as ɵngcc3 from '@angular/router';
-import * as ɵngcc4 from '@angular/common/http';
 var BaseComponent = /** @class */ (function () {
     // constructor
     function BaseComponent() {
@@ -100,17 +96,12 @@ var BaseComponent = /** @class */ (function () {
             });
         }); });
     };
-BaseComponent.ɵfac = function BaseComponent_Factory(t) { return new (t || BaseComponent)(); };
-BaseComponent.ɵcmp = ɵngcc0.ɵɵdefineComponent({ type: BaseComponent, selectors: [["lm-base-component"]], decls: 1, vars: 0, template: function BaseComponent_Template(rf, ctx) { if (rf & 1) {
-        ɵngcc0.ɵɵtext(0, "No UI Here");
-    } }, encapsulation: 2 });
-/*@__PURE__*/ (function () { ɵngcc0.ɵsetClassMetadata(BaseComponent, [{
-        type: Component,
-        args: [{
-                selector: 'lm-base-component',
-                template: 'No UI Here'
-            }]
-    }], function () { return []; }, null); })();
+    BaseComponent = __decorate([
+        Component({
+            selector: 'lm-base-component',
+            template: 'No UI Here'
+        })
+    ], BaseComponent);
     return BaseComponent;
 }());
 
@@ -137,14 +128,11 @@ var SafeHtmlPipe = /** @class */ (function () {
     SafeHtmlPipe.ctorParameters = function () { return [
         { type: DomSanitizer }
     ]; };
-SafeHtmlPipe.ɵfac = function SafeHtmlPipe_Factory(t) { return new (t || SafeHtmlPipe)(ɵngcc0.ɵɵdirectiveInject(ɵngcc1.DomSanitizer)); };
-SafeHtmlPipe.ɵpipe = ɵngcc0.ɵɵdefinePipe({ name: "safeHtml", type: SafeHtmlPipe, pure: true });
-/*@__PURE__*/ (function () { ɵngcc0.ɵsetClassMetadata(SafeHtmlPipe, [{
-        type: Pipe,
-        args: [{
-                name: 'safeHtml'
-            }]
-    }], function () { return [{ type: ɵngcc1.DomSanitizer }]; }, null); })();
+    SafeHtmlPipe = __decorate([
+        Pipe({
+            name: 'safeHtml'
+        })
+    ], SafeHtmlPipe);
     return SafeHtmlPipe;
 }());
 
@@ -160,44 +148,26 @@ var AngularModule = /** @class */ (function () {
      */
     function AngularModule() {
     }
-AngularModule.ɵmod = ɵngcc0.ɵɵdefineNgModule({ type: AngularModule });
-AngularModule.ɵinj = ɵngcc0.ɵɵdefineInjector({ factory: function AngularModule_Factory(t) { return new (t || AngularModule)(); }, imports: [[
-            CommonModule,
-            RouterModule,
-            HttpClientModule,
-            ReactiveFormsModule,
-        ],
-        ReactiveFormsModule,
-        CommonModule,
-        RouterModule,
-        HttpClientModule,
-        ReactiveFormsModule] });
-(function () { (typeof ngJitMode === "undefined" || ngJitMode) && ɵngcc0.ɵɵsetNgModuleScope(AngularModule, { imports: function () { return [CommonModule,
-        RouterModule,
-        HttpClientModule,
-        ReactiveFormsModule]; }, exports: function () { return [ReactiveFormsModule,
-        CommonModule,
-        RouterModule,
-        HttpClientModule,
-        ReactiveFormsModule]; } }); })();
-/*@__PURE__*/ (function () { ɵngcc0.ɵsetClassMetadata(AngularModule, [{
-        type: NgModule,
-        args: [{
-                imports: [
-                    CommonModule,
-                    RouterModule,
-                    HttpClientModule,
-                    ReactiveFormsModule,
-                ],
-                exports: [
-                    ReactiveFormsModule,
-                    CommonModule,
-                    RouterModule,
-                    HttpClientModule,
-                    ReactiveFormsModule,
-                ]
-            }]
-    }], function () { return []; }, null); })();
+    AngularModule = __decorate([
+        NgModule({
+            imports: [
+                CommonModule,
+                RouterModule,
+                HttpClientModule,
+                ReactiveFormsModule,
+            ],
+            exports: [
+                ReactiveFormsModule,
+                CommonModule,
+                RouterModule,
+                HttpClientModule,
+                ReactiveFormsModule,
+            ]
+        })
+        /**
+         * A module importing and exporting common Angular modules
+         */
+    ], AngularModule);
     return AngularModule;
 }());
 
@@ -227,40 +197,13 @@ var ErrorDialogComponent = /** @class */ (function () {
     __decorate([
         Input()
     ], ErrorDialogComponent.prototype, "data", void 0);
-ErrorDialogComponent.ɵfac = function ErrorDialogComponent_Factory(t) { return new (t || ErrorDialogComponent)(ɵngcc0.ɵɵdirectiveInject(ɵngcc2.NgbActiveModal)); };
-ErrorDialogComponent.ɵcmp = ɵngcc0.ɵɵdefineComponent({ type: ErrorDialogComponent, selectors: [["lm-error-dialog"]], inputs: { data: "data" }, decls: 9, vars: 2, consts: [[1, "modal-header"], [1, "modal-title"], [1, "modal-body"], [1, "modal-footer"], ["type", "button", 1, "btn", "btn-light", 3, "click"]], template: function ErrorDialogComponent_Template(rf, ctx) { if (rf & 1) {
-        ɵngcc0.ɵɵelementStart(0, "div", 0);
-        ɵngcc0.ɵɵelementStart(1, "h4", 1);
-        ɵngcc0.ɵɵtext(2);
-        ɵngcc0.ɵɵelementEnd();
-        ɵngcc0.ɵɵelementEnd();
-        ɵngcc0.ɵɵelementStart(3, "div", 2);
-        ɵngcc0.ɵɵelementStart(4, "p");
-        ɵngcc0.ɵɵtext(5);
-        ɵngcc0.ɵɵelementEnd();
-        ɵngcc0.ɵɵelementEnd();
-        ɵngcc0.ɵɵelementStart(6, "div", 3);
-        ɵngcc0.ɵɵelementStart(7, "button", 4);
-        ɵngcc0.ɵɵlistener("click", function ErrorDialogComponent_Template_button_click_7_listener() { return ctx.onClose(); });
-        ɵngcc0.ɵɵtext(8, " Ok ");
-        ɵngcc0.ɵɵelementEnd();
-        ɵngcc0.ɵɵelementEnd();
-    } if (rf & 2) {
-        ɵngcc0.ɵɵadvance(2);
-        ɵngcc0.ɵɵtextInterpolate(ctx.title);
-        ɵngcc0.ɵɵadvance(3);
-        ɵngcc0.ɵɵtextInterpolate(ctx.message);
-    } }, styles: [""] });
-/*@__PURE__*/ (function () { ɵngcc0.ɵsetClassMetadata(ErrorDialogComponent, [{
-        type: Component,
-        args: [{
-                selector: 'lm-error-dialog',
-                template: "<div class=\"modal-header\">\n  <h4 class=\"modal-title\">{{ title }}</h4>\n</div>\n<div class=\"modal-body\">\n  <p>{{ message }}</p>\n</div>\n<div class=\"modal-footer\">\n  <button type=\"button\" class=\"btn btn-light\" (click)=\"onClose()\">\n    Ok\n  </button>\n</div>",
-                styles: [""]
-            }]
-    }], function () { return [{ type: ɵngcc2.NgbActiveModal }]; }, { data: [{
-            type: Input
-        }] }); })();
+    ErrorDialogComponent = __decorate([
+        Component({
+            selector: 'lm-error-dialog',
+            template: "<div class=\"modal-header\">\n  <h4 class=\"modal-title\">{{ title }}</h4>\n</div>\n<div class=\"modal-body\">\n  <p>{{ message }}</p>\n</div>\n<div class=\"modal-footer\">\n  <button type=\"button\" class=\"btn btn-light\" (click)=\"onClose()\">\n    Ok\n  </button>\n</div>",
+            styles: [""]
+        })
+    ], ErrorDialogComponent);
     return ErrorDialogComponent;
 }());
 
@@ -319,50 +262,13 @@ var ConfirmDialogComponent = /** @class */ (function () {
     __decorate([
         Input()
     ], ConfirmDialogComponent.prototype, "dialogData", void 0);
-ConfirmDialogComponent.ɵfac = function ConfirmDialogComponent_Factory(t) { return new (t || ConfirmDialogComponent)(ɵngcc0.ɵɵdirectiveInject(ɵngcc2.NgbActiveModal)); };
-ConfirmDialogComponent.ɵcmp = ɵngcc0.ɵɵdefineComponent({ type: ConfirmDialogComponent, selectors: [["lm-confirm-dialog"]], inputs: { dialogData: "dialogData" }, decls: 14, vars: 2, consts: [[1, "modal-header"], [1, "modal-title"], ["type", "button", "aria-label", "Close", 1, "close", 3, "click"], ["aria-hidden", "true"], [1, "modal-body"], [1, "modal-footer"], ["type", "button", 1, "btn", "btn-light", 3, "click"], ["type", "button", 1, "btn", "btn-danger", 3, "click"]], template: function ConfirmDialogComponent_Template(rf, ctx) { if (rf & 1) {
-        ɵngcc0.ɵɵelementStart(0, "div", 0);
-        ɵngcc0.ɵɵelementStart(1, "h4", 1);
-        ɵngcc0.ɵɵtext(2);
-        ɵngcc0.ɵɵelementEnd();
-        ɵngcc0.ɵɵelementStart(3, "button", 2);
-        ɵngcc0.ɵɵlistener("click", function ConfirmDialogComponent_Template_button_click_3_listener() { return ctx.onCancel(); });
-        ɵngcc0.ɵɵelementStart(4, "span", 3);
-        ɵngcc0.ɵɵtext(5, "\u00D7");
-        ɵngcc0.ɵɵelementEnd();
-        ɵngcc0.ɵɵelementEnd();
-        ɵngcc0.ɵɵelementEnd();
-        ɵngcc0.ɵɵelementStart(6, "div", 4);
-        ɵngcc0.ɵɵelementStart(7, "p");
-        ɵngcc0.ɵɵtext(8);
-        ɵngcc0.ɵɵelementEnd();
-        ɵngcc0.ɵɵelementEnd();
-        ɵngcc0.ɵɵelementStart(9, "div", 5);
-        ɵngcc0.ɵɵelementStart(10, "button", 6);
-        ɵngcc0.ɵɵlistener("click", function ConfirmDialogComponent_Template_button_click_10_listener() { return ctx.onCancel(); });
-        ɵngcc0.ɵɵtext(11, " Cancel ");
-        ɵngcc0.ɵɵelementEnd();
-        ɵngcc0.ɵɵelementStart(12, "button", 7);
-        ɵngcc0.ɵɵlistener("click", function ConfirmDialogComponent_Template_button_click_12_listener() { return ctx.onConfirm(); });
-        ɵngcc0.ɵɵtext(13, " Confirm ");
-        ɵngcc0.ɵɵelementEnd();
-        ɵngcc0.ɵɵelementEnd();
-    } if (rf & 2) {
-        ɵngcc0.ɵɵadvance(2);
-        ɵngcc0.ɵɵtextInterpolate(ctx.dialogData.title);
-        ɵngcc0.ɵɵadvance(6);
-        ɵngcc0.ɵɵtextInterpolate(ctx.dialogData.message);
-    } }, styles: [""] });
-/*@__PURE__*/ (function () { ɵngcc0.ɵsetClassMetadata(ConfirmDialogComponent, [{
-        type: Component,
-        args: [{
-                selector: 'lm-confirm-dialog',
-                template: "<div class=\"modal-header\">\n  <h4 class=\"modal-title\">{{ dialogData.title }}</h4>\n  <button type=\"button\" class=\"close\" aria-label=\"Close\" (click)=\"onCancel()\">\n    <span aria-hidden=\"true\">&times;</span>\n  </button>\n</div>\n<div class=\"modal-body\">\n  <p>{{ dialogData.message }}</p>\n</div>\n<div class=\"modal-footer\">\n  <button type=\"button\" class=\"btn btn-light\" (click)=\"onCancel()\"> Cancel </button>\n  <button type=\"button\" class=\"btn btn-danger\" (click)=\"onConfirm()\"> Confirm </button>\n</div>",
-                styles: [""]
-            }]
-    }], function () { return [{ type: ɵngcc2.NgbActiveModal }]; }, { dialogData: [{
-            type: Input
-        }] }); })();
+    ConfirmDialogComponent = __decorate([
+        Component({
+            selector: 'lm-confirm-dialog',
+            template: "<div class=\"modal-header\">\n  <h4 class=\"modal-title\">{{ dialogData.title }}</h4>\n  <button type=\"button\" class=\"close\" aria-label=\"Close\" (click)=\"onCancel()\">\n    <span aria-hidden=\"true\">&times;</span>\n  </button>\n</div>\n<div class=\"modal-body\">\n  <p>{{ dialogData.message }}</p>\n</div>\n<div class=\"modal-footer\">\n  <button type=\"button\" class=\"btn btn-light\" (click)=\"onCancel()\"> Cancel </button>\n  <button type=\"button\" class=\"btn btn-danger\" (click)=\"onConfirm()\"> Confirm </button>\n</div>",
+            styles: [""]
+        })
+    ], ConfirmDialogComponent);
     return ConfirmDialogComponent;
 }());
 
@@ -393,33 +299,26 @@ var LeathermanModule = /** @class */ (function () {
         };
     };
     var LeathermanModule_1;
-LeathermanModule.ɵmod = ɵngcc0.ɵɵdefineNgModule({ type: LeathermanModule });
-LeathermanModule.ɵinj = ɵngcc0.ɵɵdefineInjector({ factory: function LeathermanModule_Factory(t) { return new (t || LeathermanModule)(); }, imports: [[AngularModule]] });
-(function () { (typeof ngJitMode === "undefined" || ngJitMode) && ɵngcc0.ɵɵsetNgModuleScope(LeathermanModule, { declarations: [SafeHtmlPipe,
-        BaseComponent,
-        ErrorDialogComponent,
-        ConfirmDialogComponent], imports: [AngularModule], exports: [SafeHtmlPipe,
-        BaseComponent,
-        ErrorDialogComponent,
-        ConfirmDialogComponent] }); })();
-/*@__PURE__*/ (function () { ɵngcc0.ɵsetClassMetadata(LeathermanModule, [{
-        type: NgModule,
-        args: [{
-                imports: [AngularModule],
-                declarations: [
-                    SafeHtmlPipe,
-                    BaseComponent,
-                    ErrorDialogComponent,
-                    ConfirmDialogComponent,
-                ],
-                exports: [
-                    SafeHtmlPipe,
-                    BaseComponent,
-                    ErrorDialogComponent,
-                    ConfirmDialogComponent,
-                ]
-            }]
-    }], function () { return []; }, null); })();
+    LeathermanModule = LeathermanModule_1 = __decorate([
+        NgModule({
+            imports: [AngularModule],
+            declarations: [
+                SafeHtmlPipe,
+                BaseComponent,
+                ErrorDialogComponent,
+                ConfirmDialogComponent,
+            ],
+            exports: [
+                SafeHtmlPipe,
+                BaseComponent,
+                ErrorDialogComponent,
+                ConfirmDialogComponent,
+            ]
+        })
+        /**
+         * A module declaring and exporting Leatherman components
+         */
+    ], LeathermanModule);
     return LeathermanModule;
 }());
 
@@ -527,13 +426,11 @@ var ConfirmDialogService = /** @class */ (function () {
         { type: NgbModal }
     ]; };
     ConfirmDialogService.ɵprov = ɵɵdefineInjectable({ factory: function ConfirmDialogService_Factory() { return new ConfirmDialogService(ɵɵinject(NgbModal)); }, token: ConfirmDialogService, providedIn: "root" });
-ConfirmDialogService.ɵfac = function ConfirmDialogService_Factory(t) { return new (t || ConfirmDialogService)(ɵngcc0.ɵɵinject(ɵngcc2.NgbModal)); };
-/*@__PURE__*/ (function () { ɵngcc0.ɵsetClassMetadata(ConfirmDialogService, [{
-        type: Injectable,
-        args: [{
-                providedIn: "root"
-            }]
-    }], function () { return [{ type: ɵngcc2.NgbModal }]; }, null); })();
+    ConfirmDialogService = __decorate([
+        Injectable({
+            providedIn: "root",
+        })
+    ], ConfirmDialogService);
     return ConfirmDialogService;
 }());
 
@@ -565,13 +462,11 @@ var MockConfirmDialogService = /** @class */ (function (_super) {
         { type: NgbModal }
     ]; };
     MockConfirmDialogService.ɵprov = ɵɵdefineInjectable({ factory: function MockConfirmDialogService_Factory() { return new MockConfirmDialogService(ɵɵinject(NgbModal)); }, token: MockConfirmDialogService, providedIn: "root" });
-MockConfirmDialogService.ɵfac = function MockConfirmDialogService_Factory(t) { return new (t || MockConfirmDialogService)(ɵngcc0.ɵɵinject(ɵngcc2.NgbModal)); };
-/*@__PURE__*/ (function () { ɵngcc0.ɵsetClassMetadata(MockConfirmDialogService, [{
-        type: Injectable,
-        args: [{
-                providedIn: 'root'
-            }]
-    }], function () { return [{ type: ɵngcc2.NgbModal }]; }, null); })();
+    MockConfirmDialogService = __decorate([
+        Injectable({
+            providedIn: 'root'
+        })
+    ], MockConfirmDialogService);
     return MockConfirmDialogService;
 }(ConfirmDialogService));
 
@@ -617,13 +512,11 @@ var ErrorDialogService = /** @class */ (function () {
         { type: NgbModal }
     ]; };
     ErrorDialogService.ɵprov = ɵɵdefineInjectable({ factory: function ErrorDialogService_Factory() { return new ErrorDialogService(ɵɵinject(NgbModal)); }, token: ErrorDialogService, providedIn: "root" });
-ErrorDialogService.ɵfac = function ErrorDialogService_Factory(t) { return new (t || ErrorDialogService)(ɵngcc0.ɵɵinject(ɵngcc2.NgbModal)); };
-/*@__PURE__*/ (function () { ɵngcc0.ɵsetClassMetadata(ErrorDialogService, [{
-        type: Injectable,
-        args: [{
-                providedIn: 'root'
-            }]
-    }], function () { return [{ type: ɵngcc2.NgbModal }]; }, null); })();
+    ErrorDialogService = __decorate([
+        Injectable({
+            providedIn: 'root'
+        })
+    ], ErrorDialogService);
     return ErrorDialogService;
 }());
 
@@ -651,14 +544,11 @@ var MockErrorDialogService = /** @class */ (function (_super) {
         });
     };
     MockErrorDialogService.ɵprov = ɵɵdefineInjectable({ factory: function MockErrorDialogService_Factory() { return new MockErrorDialogService(ɵɵinject(NgbModal)); }, token: MockErrorDialogService, providedIn: "root" });
-MockErrorDialogService.ɵfac = function MockErrorDialogService_Factory(t) { return ɵMockErrorDialogService_BaseFactory(t || MockErrorDialogService); };
-var ɵMockErrorDialogService_BaseFactory = ɵngcc0.ɵɵgetInheritedFactory(MockErrorDialogService);
-/*@__PURE__*/ (function () { ɵngcc0.ɵsetClassMetadata(MockErrorDialogService, [{
-        type: Injectable,
-        args: [{
-                providedIn: 'root'
-            }]
-    }], null, null); })();
+    MockErrorDialogService = __decorate([
+        Injectable({
+            providedIn: 'root'
+        })
+    ], MockErrorDialogService);
     return MockErrorDialogService;
 }(ErrorDialogService));
 
@@ -697,6 +587,11 @@ var Status;
     /** A server error occurred */
     Status[Status["Error"] = 500] = "Error";
 })(Status || (Status = {}));
+var SessionState;
+(function (SessionState) {
+    SessionState["LocalStorage"] = "local-storage";
+    SessionState["SessionStorage"] = "session-storage";
+})(SessionState || (SessionState = {}));
 
 /**
  * Enumeration representing test artifact states
@@ -1657,8 +1552,15 @@ var BaseDataService = /** @class */ (function () {
     Object.defineProperty(BaseDataService.prototype, "authHeader", {
         /** Get acccessor for the header to use when the API endpoit is secured with a JWT token */
         get: function () {
-            var localStorageToken = localStorage.getItem(this.config.jwtTokenName);
-            var token = localStorageToken ? 'Bearer ' + localStorageToken : '';
+            var storageToken = '';
+            var store = this.config.store || SessionState$1.LocalStorage;
+            if (SessionState$1.SessionStorage === store) {
+                storageToken = sessionStorage.getItem(this.config.jwtTokenName);
+            }
+            else {
+                storageToken = localStorage.getItem(this.config.jwtTokenName);
+            }
+            var token = storageToken ? 'Bearer ' + storageToken : '';
             var authHeader = new HttpHeaders({
                 Authorization: token,
                 'Content-Type': 'application/json',
@@ -2349,22 +2251,13 @@ var BaseDataService = /** @class */ (function () {
         { type: HttpClient }
     ]; };
     BaseDataService.ɵprov = ɵɵdefineInjectable({ factory: function BaseDataService_Factory() { return new BaseDataService(ɵɵinject(LeathermanAppConfigInjectionToken), ɵɵinject(ErrorDialogServiceInjectionToken), ɵɵinject(Router), ɵɵinject(HttpClient)); }, token: BaseDataService, providedIn: "root" });
-    BaseDataService = __decorate([ __param(0, Inject(LeathermanAppConfigInjectionToken)),
+    BaseDataService = __decorate([
+        Injectable({
+            providedIn: 'root'
+        }),
+        __param(0, Inject(LeathermanAppConfigInjectionToken)),
         __param(1, Inject(ErrorDialogServiceInjectionToken))
     ], BaseDataService);
-BaseDataService.ɵfac = function BaseDataService_Factory(t) { return new (t || BaseDataService)(ɵngcc0.ɵɵinject(LeathermanAppConfigInjectionToken), ɵngcc0.ɵɵinject(ErrorDialogServiceInjectionToken), ɵngcc0.ɵɵinject(ɵngcc3.Router), ɵngcc0.ɵɵinject(ɵngcc4.HttpClient)); };
-/*@__PURE__*/ (function () { ɵngcc0.ɵsetClassMetadata(BaseDataService, [{
-        type: Injectable,
-        args: [{
-                providedIn: 'root'
-            }]
-    }], function () { return [{ type: undefined, decorators: [{
-                type: Inject,
-                args: [LeathermanAppConfigInjectionToken]
-            }] }, { type: ErrorDialogService, decorators: [{
-                type: Inject,
-                args: [ErrorDialogServiceInjectionToken]
-            }] }, { type: ɵngcc3.Router }, { type: ɵngcc4.HttpClient }]; }, null); })();
     return BaseDataService;
 }());
 
@@ -2477,22 +2370,13 @@ var AuthenticationDataService = /** @class */ (function (_super) {
         { type: HttpClient }
     ]; };
     AuthenticationDataService.ɵprov = ɵɵdefineInjectable({ factory: function AuthenticationDataService_Factory() { return new AuthenticationDataService(ɵɵinject(LeathermanAppConfigInjectionToken), ɵɵinject(ErrorDialogServiceInjectionToken), ɵɵinject(Router), ɵɵinject(HttpClient)); }, token: AuthenticationDataService, providedIn: "root" });
-    AuthenticationDataService = __decorate([ __param(0, Inject(LeathermanAppConfigInjectionToken)),
+    AuthenticationDataService = __decorate([
+        Injectable({
+            providedIn: 'root'
+        }),
+        __param(0, Inject(LeathermanAppConfigInjectionToken)),
         __param(1, Inject(ErrorDialogServiceInjectionToken))
     ], AuthenticationDataService);
-AuthenticationDataService.ɵfac = function AuthenticationDataService_Factory(t) { return new (t || AuthenticationDataService)(ɵngcc0.ɵɵinject(LeathermanAppConfigInjectionToken), ɵngcc0.ɵɵinject(ErrorDialogServiceInjectionToken), ɵngcc0.ɵɵinject(ɵngcc3.Router), ɵngcc0.ɵɵinject(ɵngcc4.HttpClient)); };
-/*@__PURE__*/ (function () { ɵngcc0.ɵsetClassMetadata(AuthenticationDataService, [{
-        type: Injectable,
-        args: [{
-                providedIn: 'root'
-            }]
-    }], function () { return [{ type: undefined, decorators: [{
-                type: Inject,
-                args: [LeathermanAppConfigInjectionToken]
-            }] }, { type: ErrorDialogService, decorators: [{
-                type: Inject,
-                args: [ErrorDialogServiceInjectionToken]
-            }] }, { type: ɵngcc3.Router }, { type: ɵngcc4.HttpClient }]; }, null); })();
     return AuthenticationDataService;
 }(BaseDataService));
 
@@ -2510,6 +2394,7 @@ var AuthenticationService = /** @class */ (function () {
         this.authenticationDataService = authenticationDataService;
         /** Reference to the JWT helper service */
         this.jwtHelper = new JwtHelperService();
+        this.store = config.store || SessionState$1.LocalStorage;
     }
     Object.defineProperty(AuthenticationService.prototype, "token", {
         // **********************
@@ -2518,13 +2403,23 @@ var AuthenticationService = /** @class */ (function () {
         /** Get accessor for the JWT token */
         get: function () {
             if (!this._token) {
-                this._token = this.getTokenFromLocalStorage();
+                if (this.store === SessionState$1.SessionStorage) {
+                    this._token = this.getTokenFromSessionStorage();
+                }
+                else {
+                    this._token = this.getTokenFromLocalStorage();
+                }
             }
             return this._token;
         },
         /** Set accessor for the JWT token */
         set: function (token) {
-            this.setLocalStorage(token);
+            if (this.store === SessionState$1.SessionStorage) {
+                this.setSessionStorage(token);
+            }
+            else {
+                this.setLocalStorage(token);
+            }
             this._token = token;
         },
         enumerable: true,
@@ -2557,7 +2452,12 @@ var AuthenticationService = /** @class */ (function () {
      */
     AuthenticationService.prototype.clearToken = function () {
         this._token = '';
-        this.clearLocalStorage();
+        if (this.store === SessionState$1.LocalStorage) {
+            this.clearLocalStorage();
+        }
+        else {
+            this.clearSessionStorage();
+        }
     };
     /**
      * Get the user's primary role
@@ -2673,7 +2573,12 @@ var AuthenticationService = /** @class */ (function () {
      * @param token - The JWT token
      */
     AuthenticationService.prototype.setToken = function (token) {
-        this.setLocalStorage(token);
+        if (this.store === SessionState$1.LocalStorage) {
+            this.setLocalStorage(token);
+        }
+        else {
+            this.setSessionStorage(token);
+        }
         this._token = token;
     };
     // **********************
@@ -2684,6 +2589,12 @@ var AuthenticationService = /** @class */ (function () {
      */
     AuthenticationService.prototype.clearLocalStorage = function () {
         localStorage.removeItem(this.config.jwtTokenName);
+    };
+    /**
+     * Remove the JWT token from session storage
+     */
+    AuthenticationService.prototype.clearSessionStorage = function () {
+        sessionStorage.removeItem(this.config.jwtTokenName);
     };
     /**
      * Get the JWT token from local storage
@@ -2697,29 +2608,41 @@ var AuthenticationService = /** @class */ (function () {
         return token;
     };
     /**
+     * Get the JWT token from session storage
+     * @returns The JWT token
+     */
+    AuthenticationService.prototype.getTokenFromSessionStorage = function () {
+        var token = sessionStorage.getItem(this.config.jwtTokenName);
+        if (!token) {
+            return '';
+        }
+        return token;
+    };
+    /**
      * Save the JWT token to local storage
      * @param token - The JWT token
      */
     AuthenticationService.prototype.setLocalStorage = function (token) {
         localStorage.setItem(this.config.jwtTokenName, token);
     };
+    /**
+     * Save the JWT token to session storage
+     * @param token - The JWT token
+     */
+    AuthenticationService.prototype.setSessionStorage = function (token) {
+        sessionStorage.setItem(this.config.jwtTokenName, token);
+    };
     AuthenticationService.ctorParameters = function () { return [
         { type: undefined, decorators: [{ type: Inject, args: [LeathermanAppConfigInjectionToken,] }] },
         { type: AuthenticationDataService }
     ]; };
     AuthenticationService.ɵprov = ɵɵdefineInjectable({ factory: function AuthenticationService_Factory() { return new AuthenticationService(ɵɵinject(LeathermanAppConfigInjectionToken), ɵɵinject(AuthenticationDataService)); }, token: AuthenticationService, providedIn: "root" });
-    AuthenticationService = __decorate([ __param(0, Inject(LeathermanAppConfigInjectionToken))
+    AuthenticationService = __decorate([
+        Injectable({
+            providedIn: 'root'
+        }),
+        __param(0, Inject(LeathermanAppConfigInjectionToken))
     ], AuthenticationService);
-AuthenticationService.ɵfac = function AuthenticationService_Factory(t) { return new (t || AuthenticationService)(ɵngcc0.ɵɵinject(LeathermanAppConfigInjectionToken), ɵngcc0.ɵɵinject(AuthenticationDataService)); };
-/*@__PURE__*/ (function () { ɵngcc0.ɵsetClassMetadata(AuthenticationService, [{
-        type: Injectable,
-        args: [{
-                providedIn: 'root'
-            }]
-    }], function () { return [{ type: undefined, decorators: [{
-                type: Inject,
-                args: [LeathermanAppConfigInjectionToken]
-            }] }, { type: AuthenticationDataService }]; }, null); })();
     return AuthenticationService;
 }());
 
@@ -2758,13 +2681,11 @@ var AdminAuthGuardService = /** @class */ (function () {
         { type: Router }
     ]; };
     AdminAuthGuardService.ɵprov = ɵɵdefineInjectable({ factory: function AdminAuthGuardService_Factory() { return new AdminAuthGuardService(ɵɵinject(AuthenticationService), ɵɵinject(Router)); }, token: AdminAuthGuardService, providedIn: "root" });
-AdminAuthGuardService.ɵfac = function AdminAuthGuardService_Factory(t) { return new (t || AdminAuthGuardService)(ɵngcc0.ɵɵinject(AuthenticationService), ɵngcc0.ɵɵinject(ɵngcc3.Router)); };
-/*@__PURE__*/ (function () { ɵngcc0.ɵsetClassMetadata(AdminAuthGuardService, [{
-        type: Injectable,
-        args: [{
-                providedIn: 'root'
-            }]
-    }], function () { return [{ type: AuthenticationService }, { type: ɵngcc3.Router }]; }, null); })();
+    AdminAuthGuardService = __decorate([
+        Injectable({
+            providedIn: 'root'
+        })
+    ], AdminAuthGuardService);
     return AdminAuthGuardService;
 }());
 
@@ -2799,13 +2720,11 @@ var UserAuthGuardService = /** @class */ (function () {
         { type: Router }
     ]; };
     UserAuthGuardService.ɵprov = ɵɵdefineInjectable({ factory: function UserAuthGuardService_Factory() { return new UserAuthGuardService(ɵɵinject(AuthenticationService), ɵɵinject(Router)); }, token: UserAuthGuardService, providedIn: "root" });
-UserAuthGuardService.ɵfac = function UserAuthGuardService_Factory(t) { return new (t || UserAuthGuardService)(ɵngcc0.ɵɵinject(AuthenticationService), ɵngcc0.ɵɵinject(ɵngcc3.Router)); };
-/*@__PURE__*/ (function () { ɵngcc0.ɵsetClassMetadata(UserAuthGuardService, [{
-        type: Injectable,
-        args: [{
-                providedIn: 'root'
-            }]
-    }], function () { return [{ type: AuthenticationService }, { type: ɵngcc3.Router }]; }, null); })();
+    UserAuthGuardService = __decorate([
+        Injectable({
+            providedIn: 'root'
+        })
+    ], UserAuthGuardService);
     return UserAuthGuardService;
 }());
 
@@ -2852,13 +2771,11 @@ var BaseComponentUIService = /** @class */ (function () {
         this[subjectName].subscribe(callback);
     };
     BaseComponentUIService.ɵprov = ɵɵdefineInjectable({ factory: function BaseComponentUIService_Factory() { return new BaseComponentUIService(); }, token: BaseComponentUIService, providedIn: "root" });
-BaseComponentUIService.ɵfac = function BaseComponentUIService_Factory(t) { return new (t || BaseComponentUIService)(); };
-/*@__PURE__*/ (function () { ɵngcc0.ɵsetClassMetadata(BaseComponentUIService, [{
-        type: Injectable,
-        args: [{
-                providedIn: 'root'
-            }]
-    }], function () { return []; }, null); })();
+    BaseComponentUIService = __decorate([
+        Injectable({
+            providedIn: 'root'
+        })
+    ], BaseComponentUIService);
     return BaseComponentUIService;
 }());
 
@@ -3000,22 +2917,13 @@ var CustomErrorHandlerService = /** @class */ (function (_super) {
         { type: HttpClient }
     ]; };
     CustomErrorHandlerService.ɵprov = ɵɵdefineInjectable({ factory: function CustomErrorHandlerService_Factory() { return new CustomErrorHandlerService(ɵɵinject(LeathermanAppConfigInjectionToken), ɵɵinject(ErrorDialogServiceInjectionToken), ɵɵinject(Router), ɵɵinject(HttpClient)); }, token: CustomErrorHandlerService, providedIn: "root" });
-    CustomErrorHandlerService = __decorate([ __param(0, Inject(LeathermanAppConfigInjectionToken)),
+    CustomErrorHandlerService = __decorate([
+        Injectable({
+            providedIn: 'root'
+        }),
+        __param(0, Inject(LeathermanAppConfigInjectionToken)),
         __param(1, Inject(ErrorDialogServiceInjectionToken))
     ], CustomErrorHandlerService);
-CustomErrorHandlerService.ɵfac = function CustomErrorHandlerService_Factory(t) { return new (t || CustomErrorHandlerService)(ɵngcc0.ɵɵinject(LeathermanAppConfigInjectionToken), ɵngcc0.ɵɵinject(ErrorDialogServiceInjectionToken), ɵngcc0.ɵɵinject(ɵngcc3.Router), ɵngcc0.ɵɵinject(ɵngcc4.HttpClient)); };
-/*@__PURE__*/ (function () { ɵngcc0.ɵsetClassMetadata(CustomErrorHandlerService, [{
-        type: Injectable,
-        args: [{
-                providedIn: 'root'
-            }]
-    }], function () { return [{ type: undefined, decorators: [{
-                type: Inject,
-                args: [LeathermanAppConfigInjectionToken]
-            }] }, { type: ErrorDialogService, decorators: [{
-                type: Inject,
-                args: [ErrorDialogServiceInjectionToken]
-            }] }, { type: ɵngcc3.Router }, { type: ɵngcc4.HttpClient }]; }, null); })();
     return CustomErrorHandlerService;
 }(BaseDataService));
 
@@ -3116,18 +3024,12 @@ var RoutePartsService = /** @class */ (function () {
     __decorate([
         Output()
     ], RoutePartsService.prototype, "routeChanged", void 0);
-RoutePartsService.ɵfac = function RoutePartsService_Factory(t) { return new (t || RoutePartsService)(ɵngcc0.ɵɵdirectiveInject(ɵngcc3.Router), ɵngcc0.ɵɵdirectiveInject(ɵngcc3.ActivatedRoute)); };
-RoutePartsService.ɵdir = ɵngcc0.ɵɵdefineDirective({ type: RoutePartsService, outputs: { routeChanged: "routeChanged" } });
-/*@__PURE__*/ (function () { ɵngcc0.ɵsetClassMetadata(RoutePartsService, [{
-        type: Directive
-    }, {
-        type: Injectable,
-        args: [{
-                providedIn: 'root'
-            }]
-    }], function () { return [{ type: ɵngcc3.Router }, { type: ɵngcc3.ActivatedRoute }]; }, { routeChanged: [{
-            type: Output
-        }] }); })();
+    RoutePartsService = __decorate([
+        Directive(),
+        Injectable({
+            providedIn: 'root'
+        })
+    ], RoutePartsService);
     return RoutePartsService;
 }());
 
@@ -3560,22 +3462,13 @@ var BaseUserDataService = /** @class */ (function (_super) {
         { type: HttpClient }
     ]; };
     BaseUserDataService.ɵprov = ɵɵdefineInjectable({ factory: function BaseUserDataService_Factory() { return new BaseUserDataService(ɵɵinject(LeathermanAppConfigInjectionToken), ɵɵinject(ErrorDialogServiceInjectionToken), ɵɵinject(Router), ɵɵinject(HttpClient)); }, token: BaseUserDataService, providedIn: "root" });
-    BaseUserDataService = __decorate([ __param(0, Inject(LeathermanAppConfigInjectionToken)),
+    BaseUserDataService = __decorate([
+        Injectable({
+            providedIn: 'root'
+        }),
+        __param(0, Inject(LeathermanAppConfigInjectionToken)),
         __param(1, Inject(ErrorDialogServiceInjectionToken))
     ], BaseUserDataService);
-BaseUserDataService.ɵfac = function BaseUserDataService_Factory(t) { return new (t || BaseUserDataService)(ɵngcc0.ɵɵinject(LeathermanAppConfigInjectionToken), ɵngcc0.ɵɵinject(ErrorDialogServiceInjectionToken), ɵngcc0.ɵɵinject(ɵngcc3.Router), ɵngcc0.ɵɵinject(ɵngcc4.HttpClient)); };
-/*@__PURE__*/ (function () { ɵngcc0.ɵsetClassMetadata(BaseUserDataService, [{
-        type: Injectable,
-        args: [{
-                providedIn: 'root'
-            }]
-    }], function () { return [{ type: undefined, decorators: [{
-                type: Inject,
-                args: [LeathermanAppConfigInjectionToken]
-            }] }, { type: ErrorDialogService, decorators: [{
-                type: Inject,
-                args: [ErrorDialogServiceInjectionToken]
-            }] }, { type: ɵngcc3.Router }, { type: ɵngcc4.HttpClient }]; }, null); })();
     return BaseUserDataService;
 }(BaseDataService));
 
@@ -3966,13 +3859,11 @@ var BaseUserService = /** @class */ (function (_super) {
         { type: Router }
     ]; };
     BaseUserService.ɵprov = ɵɵdefineInjectable({ factory: function BaseUserService_Factory() { return new BaseUserService(ɵɵinject(AuthenticationService), ɵɵinject(BaseUserDataService), ɵɵinject(ConfirmDialogService), ɵɵinject(Router)); }, token: BaseUserService, providedIn: "root" });
-BaseUserService.ɵfac = function BaseUserService_Factory(t) { return new (t || BaseUserService)(ɵngcc0.ɵɵinject(AuthenticationService), ɵngcc0.ɵɵinject(BaseUserDataService), ɵngcc0.ɵɵinject(ConfirmDialogService), ɵngcc0.ɵɵinject(ɵngcc3.Router)); };
-/*@__PURE__*/ (function () { ɵngcc0.ɵsetClassMetadata(BaseUserService, [{
-        type: Injectable,
-        args: [{
-                providedIn: 'root'
-            }]
-    }], function () { return [{ type: AuthenticationService }, { type: BaseUserDataService }, { type: ConfirmDialogService }, { type: ɵngcc3.Router }]; }, null); })();
+    BaseUserService = __decorate([
+        Injectable({
+            providedIn: 'root'
+        })
+    ], BaseUserService);
     return BaseUserService;
 }(BaseService));
 
@@ -5049,6 +4940,5 @@ var validateStrongPassword = function (control) {
  * Generated bundle index. Do not edit.
  */
 
-export { AdminAuthGuardService, ArrayDto, AuthenticationDataService, AuthenticationDetails, AuthenticationService, AuthenticationTokenExpiry, BaseComponent, BaseComponentUIService, BaseDataService, BaseModel, BaseNewUserRequest, BasePasswordResetRequest, BaseService, BaseUser, BaseUserDataService, BaseUserService, ClientErrorReport, CollectionUtil, ConfirmDialogComponent, ConfirmDialogData, ConfirmDialogService, ConfirmDialogServiceInjectionToken, CustomErrorHandlerService, DialogButton, DialogResult, Dto, DtoStatusContainer, ErrorDialogComponent, ErrorDialogData, ErrorDialogService, ErrorDialogServiceInjectionToken, FilterCase, FilterOptions, FilterScope, GetOptions, ISO_DATE_REGEX, ItemDto, LATITUDE_REGEX, LONGITUDE_REGEX, LeathermanAppConfigInjectionToken, LeathermanModule, LoginRequest, MatDialogMock, MixinUtil, MockConfirmDialogService, MockErrorDialogService, ObjectCopyUtil, Options, PHONE_NUMBER_REGEX, PaginatorUtil, Parameter, Parameters, RegexUtil, RoutePartsService, STATE_ABBREVIATIONS, STRONG_PASSWORD_REGEX, SafeHtmlPipe, SearchFacetField, SearchFacetFilter, SearchFacetFilterProperties, SearchFacetOptions, SearchFacetRangeFilter, SearchFacetRangeFilterProperties, SearchFacetRangeQuery, SearchMatchFilter, SearchOptions, SearchRangeFilter, SearchResultFacet, SearchResultFacetItem, SearchResultMeta, SearchResultRequest, SearchResultsContainer, SearchResultsDto, Secure, ShortIdUtil, Sort, SortOption, Status, TestArtifact, URL_REGEX, Unique, UniqueMode, UploadEvent, UrlUtil, UserAuthGuardService, ValidatePasswordResetTokenResponse, ValidateVerifyEmailTokenResponse, ZIP_CODE_REGEX, validateStrongPassword, AngularModule as ɵa };
-
+export { AdminAuthGuardService, ArrayDto, AuthenticationDataService, AuthenticationDetails, AuthenticationService, AuthenticationTokenExpiry, BaseComponent, BaseComponentUIService, BaseDataService, BaseModel, BaseNewUserRequest, BasePasswordResetRequest, BaseService, BaseUser, BaseUserDataService, BaseUserService, ClientErrorReport, CollectionUtil, ConfirmDialogComponent, ConfirmDialogData, ConfirmDialogService, ConfirmDialogServiceInjectionToken, CustomErrorHandlerService, DialogButton, DialogResult, Dto, DtoStatusContainer, ErrorDialogComponent, ErrorDialogData, ErrorDialogService, ErrorDialogServiceInjectionToken, FilterCase, FilterOptions, FilterScope, GetOptions, ISO_DATE_REGEX, ItemDto, LATITUDE_REGEX, LONGITUDE_REGEX, LeathermanAppConfigInjectionToken, LeathermanModule, LoginRequest, MatDialogMock, MixinUtil, MockConfirmDialogService, MockErrorDialogService, ObjectCopyUtil, Options, PHONE_NUMBER_REGEX, PaginatorUtil, Parameter, Parameters, RegexUtil, RoutePartsService, STATE_ABBREVIATIONS, STRONG_PASSWORD_REGEX, SafeHtmlPipe, SearchFacetField, SearchFacetFilter, SearchFacetFilterProperties, SearchFacetOptions, SearchFacetRangeFilter, SearchFacetRangeFilterProperties, SearchFacetRangeQuery, SearchMatchFilter, SearchOptions, SearchRangeFilter, SearchResultFacet, SearchResultFacetItem, SearchResultMeta, SearchResultRequest, SearchResultsContainer, SearchResultsDto, Secure, SessionState, ShortIdUtil, Sort, SortOption, Status, TestArtifact, URL_REGEX, Unique, UniqueMode, UploadEvent, UrlUtil, UserAuthGuardService, ValidatePasswordResetTokenResponse, ValidateVerifyEmailTokenResponse, ZIP_CODE_REGEX, validateStrongPassword, AngularModule as ɵa };
 //# sourceMappingURL=leatherman-bootstrap.js.map

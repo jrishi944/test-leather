@@ -1,47 +1,42 @@
 {
-  "_args": [
-    [
-      "leatherman-bootstrap@0.1.10",
-      "D:\\Client\\batch\\batch-skip-tracing\\client"
-    ]
-  ],
-  "_from": "leatherman-bootstrap@0.1.10",
-  "_id": "leatherman-bootstrap@0.1.10",
+  "_from": "leatherman-bootstrap@^0.1.10",
+  "_id": "leatherman-bootstrap@0.1.11",
   "_inBundle": false,
-  "_integrity": "sha512-nrDqKnbLmc5Z/y/zQw02W/+IXd8LqxzYLWbcO+zaYIdkPAIUMBRbZYzDeSgzCpmyJ88ZeeIqwMgjvosMZPfT3A==",
+  "_integrity": "sha512-JfF+Q6t+1yjad8uWCO/HPSZvG+ad0ASOQV4VjtOflLqEkm/8HY8aUeQJHGeHftMKvwUZxHtggcsH9frkwVci/g==",
   "_location": "/leatherman-bootstrap",
   "_phantomChildren": {},
   "_requested": {
-    "type": "version",
+    "type": "range",
     "registry": true,
-    "raw": "leatherman-bootstrap@0.1.10",
+    "raw": "leatherman-bootstrap@^0.1.10",
     "name": "leatherman-bootstrap",
     "escapedName": "leatherman-bootstrap",
-    "rawSpec": "0.1.10",
+    "rawSpec": "^0.1.10",
     "saveSpec": null,
-    "fetchSpec": "0.1.10"
+    "fetchSpec": "^0.1.10"
   },
   "_requiredBy": [
     "/"
   ],
-  "_resolved": "https://registry.npmjs.org/leatherman-bootstrap/-/leatherman-bootstrap-0.1.10.tgz",
-  "_spec": "0.1.10",
-  "_where": "D:\\Client\\batch\\batch-skip-tracing\\client",
+  "_resolved": "https://registry.npmjs.org/leatherman-bootstrap/-/leatherman-bootstrap-0.1.11.tgz",
+  "_shasum": "e157ab9dad7b39d83ef63355f97e5c975fef74f3",
+  "_spec": "leatherman-bootstrap@^0.1.10",
+  "_where": "D:\\Client\\batch\\New folder\\batch-skip-tracing\\client",
   "author": {
     "name": "DragonFire Technologies, LLC"
   },
   "bugs": {
     "url": "https://github.com/dragonfiretechnologies/leatherman-bootstrap/issues"
   },
+  "bundleDependencies": false,
   "dependencies": {
     "tslib": "^1.10.0"
   },
+  "deprecated": false,
   "description": "Client library for DragonFire apps",
-  "es2015_ivy_ngcc": "__ivy_ngcc__/fesm2015/leatherman-bootstrap.js",
   "es2015": "fesm2015/leatherman-bootstrap.js",
   "esm2015": "esm2015/leatherman-bootstrap.js",
   "esm5": "esm5/leatherman-bootstrap.js",
-  "fesm2015_ivy_ngcc": "__ivy_ngcc__/fesm2015/leatherman-bootstrap.js",
   "fesm2015": "fesm2015/leatherman-bootstrap.js",
   "fesm5": "fesm5/leatherman-bootstrap.js",
   "homepage": "https://github.com/dragonfiretechnologies/leatherman-bootstrap#readme",
@@ -65,16 +60,5 @@
   },
   "sideEffects": false,
   "typings": "leatherman-bootstrap.d.ts",
-  "version": "0.1.10",
-  "__processed_by_ivy_ngcc__": {
-    "es2015": "9.1.13",
-    "esm2015": "9.1.13",
-    "fesm2015": "9.1.13",
-    "fesm5": "9.1.13",
-    "module": "9.1.13",
-    "typings": "9.1.13"
-  },
-  "scripts": {
-    "prepublishOnly": "node --eval \"console.error('ERROR: Trying to publish a package that has been compiled by NGCC. This is not allowed.\\nPlease delete and rebuild the package, without compiling with NGCC, before attempting to publish.\\nNote that NGCC may have been run by importing this package into another project that is being built with Ivy enabled.\\n')\" && exit 1"
-  }
+  "version": "0.1.11"
 }

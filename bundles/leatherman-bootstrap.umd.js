@@ -1,8 +1,8 @@
 (function (global, factory) {
-    typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@angular/core'), require('rxjs/operators'), require('rxjs'), require('@angular/platform-browser'), require('@angular/common'), require('@angular/common/http'), require('@angular/forms'), require('@angular/router'), require('@ng-bootstrap/ng-bootstrap'), require('@auth0/angular-jwt'), require('lodash'), require('class-transformer'), require('shortid')) :
-    typeof define === 'function' && define.amd ? define('leatherman-bootstrap', ['exports', '@angular/core', 'rxjs/operators', 'rxjs', '@angular/platform-browser', '@angular/common', '@angular/common/http', '@angular/forms', '@angular/router', '@ng-bootstrap/ng-bootstrap', '@auth0/angular-jwt', 'lodash', 'class-transformer', 'shortid'], factory) :
-    (global = global || self, factory(global['leatherman-bootstrap'] = {}, global.ng.core, global.rxjs.operators, global.rxjs, global.ng.platformBrowser, global.ng.common, global.ng.common.http, global.ng.forms, global.ng.router, global.ngBootstrap, global.angularJwt, global.lodash, global.classTransformer, global.shortid));
-}(this, (function (exports, core, operators, rxjs, platformBrowser, common, http, forms, router, ngBootstrap, angularJwt, lodash, classTransformer, shortid) { 'use strict';
+    typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@angular/core'), require('rxjs/operators'), require('rxjs'), require('@angular/platform-browser'), require('@angular/common'), require('@angular/common/http'), require('@angular/forms'), require('@angular/router'), require('@ng-bootstrap/ng-bootstrap'), require('projects/leatherman-bootstrap/src/public-api'), require('@auth0/angular-jwt'), require('lodash'), require('class-transformer'), require('shortid')) :
+    typeof define === 'function' && define.amd ? define('leatherman-bootstrap', ['exports', '@angular/core', 'rxjs/operators', 'rxjs', '@angular/platform-browser', '@angular/common', '@angular/common/http', '@angular/forms', '@angular/router', '@ng-bootstrap/ng-bootstrap', 'projects/leatherman-bootstrap/src/public-api', '@auth0/angular-jwt', 'lodash', 'class-transformer', 'shortid'], factory) :
+    (global = global || self, factory(global['leatherman-bootstrap'] = {}, global.ng.core, global.rxjs.operators, global.rxjs, global.ng.platformBrowser, global.ng.common, global.ng.common.http, global.ng.forms, global.ng.router, global.ngBootstrap, global.publicApi, global.angularJwt, global.lodash, global.classTransformer, global.shortid));
+}(this, (function (exports, core, operators, rxjs, platformBrowser, common, http, forms, router, ngBootstrap, publicApi, angularJwt, lodash, classTransformer, shortid) { 'use strict';
 
     /*! *****************************************************************************
     Copyright (c) Microsoft Corporation.
@@ -796,6 +796,11 @@
         /** A server error occurred */
         Status[Status["Error"] = 500] = "Error";
     })(exports.Status || (exports.Status = {}));
+
+    (function (SessionState) {
+        SessionState["LocalStorage"] = "local-storage";
+        SessionState["SessionStorage"] = "session-storage";
+    })(exports.SessionState || (exports.SessionState = {}));
 
     /**
      * Enumeration representing test artifact states
@@ -1756,8 +1761,15 @@
         Object.defineProperty(BaseDataService.prototype, "authHeader", {
             /** Get acccessor for the header to use when the API endpoit is secured with a JWT token */
             get: function () {
-                var localStorageToken = localStorage.getItem(this.config.jwtTokenName);
-                var token = localStorageToken ? 'Bearer ' + localStorageToken : '';
+                var storageToken = '';
+                var store = this.config.store || publicApi.SessionState.LocalStorage;
+                if (publicApi.SessionState.SessionStorage === store) {
+                    storageToken = sessionStorage.getItem(this.config.jwtTokenName);
+                }
+                else {
+                    storageToken = localStorage.getItem(this.config.jwtTokenName);
+                }
+                var token = storageToken ? 'Bearer ' + storageToken : '';
                 var authHeader = new http.HttpHeaders({
                     Authorization: token,
                     'Content-Type': 'application/json',
@@ -2591,6 +2603,7 @@
             this.authenticationDataService = authenticationDataService;
             /** Reference to the JWT helper service */
             this.jwtHelper = new angularJwt.JwtHelperService();
+            this.store = config.store || publicApi.SessionState.LocalStorage;
         }
         Object.defineProperty(AuthenticationService.prototype, "token", {
             // **********************
@@ -2599,13 +2612,23 @@
             /** Get accessor for the JWT token */
             get: function () {
                 if (!this._token) {
-                    this._token = this.getTokenFromLocalStorage();
+                    if (this.store === publicApi.SessionState.SessionStorage) {
+                        this._token = this.getTokenFromSessionStorage();
+                    }
+                    else {
+                        this._token = this.getTokenFromLocalStorage();
+                    }
                 }
                 return this._token;
             },
             /** Set accessor for the JWT token */
             set: function (token) {
-                this.setLocalStorage(token);
+                if (this.store === publicApi.SessionState.SessionStorage) {
+                    this.setSessionStorage(token);
+                }
+                else {
+                    this.setLocalStorage(token);
+                }
                 this._token = token;
             },
             enumerable: true,
@@ -2638,7 +2661,12 @@
          */
         AuthenticationService.prototype.clearToken = function () {
             this._token = '';
-            this.clearLocalStorage();
+            if (this.store === publicApi.SessionState.LocalStorage) {
+                this.clearLocalStorage();
+            }
+            else {
+                this.clearSessionStorage();
+            }
         };
         /**
          * Get the user's primary role
@@ -2754,7 +2782,12 @@
          * @param token - The JWT token
          */
         AuthenticationService.prototype.setToken = function (token) {
-            this.setLocalStorage(token);
+            if (this.store === publicApi.SessionState.LocalStorage) {
+                this.setLocalStorage(token);
+            }
+            else {
+                this.setSessionStorage(token);
+            }
             this._token = token;
         };
         // **********************
@@ -2765,6 +2798,12 @@
          */
         AuthenticationService.prototype.clearLocalStorage = function () {
             localStorage.removeItem(this.config.jwtTokenName);
+        };
+        /**
+         * Remove the JWT token from session storage
+         */
+        AuthenticationService.prototype.clearSessionStorage = function () {
+            sessionStorage.removeItem(this.config.jwtTokenName);
         };
         /**
          * Get the JWT token from local storage
@@ -2778,11 +2817,29 @@
             return token;
         };
         /**
+         * Get the JWT token from session storage
+         * @returns The JWT token
+         */
+        AuthenticationService.prototype.getTokenFromSessionStorage = function () {
+            var token = sessionStorage.getItem(this.config.jwtTokenName);
+            if (!token) {
+                return '';
+            }
+            return token;
+        };
+        /**
          * Save the JWT token to local storage
          * @param token - The JWT token
          */
         AuthenticationService.prototype.setLocalStorage = function (token) {
             localStorage.setItem(this.config.jwtTokenName, token);
+        };
+        /**
+         * Save the JWT token to session storage
+         * @param token - The JWT token
+         */
+        AuthenticationService.prototype.setSessionStorage = function (token) {
+            sessionStorage.setItem(this.config.jwtTokenName, token);
         };
         AuthenticationService.ctorParameters = function () { return [
             { type: undefined, decorators: [{ type: core.Inject, args: [LeathermanAppConfigInjectionToken,] }] },
