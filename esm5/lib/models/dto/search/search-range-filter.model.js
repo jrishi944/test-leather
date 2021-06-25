@@ -1,0 +1,7 @@
+var SearchRangeFilter = /** @class */ (function () {
+    function SearchRangeFilter() {
+    }
+    return SearchRangeFilter;
+}());
+export { SearchRangeFilter };
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoic2VhcmNoLXJhbmdlLWZpbHRlci5tb2RlbC5qcyIsInNvdXJjZVJvb3QiOiJuZzovL2xlYXRoZXJtYW4tYm9vdHN0cmFwLyIsInNvdXJjZXMiOlsibGliL21vZGVscy9kdG8vc2VhcmNoL3NlYXJjaC1yYW5nZS1maWx0ZXIubW9kZWwudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7SUFBQTtJQUtBLENBQUM7SUFBRCx3QkFBQztBQUFELENBQUMsQUFMRCxJQUtDIiwic291cmNlc0NvbnRlbnQiOlsiZXhwb3J0IGNsYXNzIFNlYXJjaFJhbmdlRmlsdGVyIHtcbiAgcHVibGljIGZpZWxkOiBzdHJpbmc7XG4gIHB1YmxpYyBzdGFydDogc3RyaW5nO1xuICBwdWJsaWMgZW5kOiBzdHJpbmc7XG4gIHB1YmxpYyBxdWVyeTogc3RyaW5nO1xufVxuIl19

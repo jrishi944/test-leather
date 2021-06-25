@@ -1,0 +1,5 @@
+/**
+ * A regex object to validate strong passwords
+ */
+export const STRONG_PASSWORD_REGEX = new RegExp(/^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})/);
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoic3Ryb25nLXBhc3N3b3JkLnJlZ2V4LmpzIiwic291cmNlUm9vdCI6Im5nOi8vbGVhdGhlcm1hbi1ib290c3RyYXAvIiwic291cmNlcyI6WyJsaWIvdXRpbC9yZWdleC9fY29uc3RhbnRzL3N0cm9uZy1wYXNzd29yZC5yZWdleC50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTs7R0FFRztBQUNILE1BQU0sQ0FBQyxNQUFNLHFCQUFxQixHQUFHLElBQUksTUFBTSxDQUM3QyxnRUFBZ0UsQ0FDakUsQ0FBQyIsInNvdXJjZXNDb250ZW50IjpbIi8qKlxuICogQSByZWdleCBvYmplY3QgdG8gdmFsaWRhdGUgc3Ryb25nIHBhc3N3b3Jkc1xuICovXG5leHBvcnQgY29uc3QgU1RST05HX1BBU1NXT1JEX1JFR0VYID0gbmV3IFJlZ0V4cChcbiAgL14oPz0uKlthLXpdKSg/PS4qW0EtWl0pKD89LipbMC05XSkoPz0uKlshQCNcXCQlXFxeJlxcKl0pKD89Lns4LH0pL1xuKTtcbiJdfQ==

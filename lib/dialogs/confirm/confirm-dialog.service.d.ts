@@ -1,0 +1,13 @@
+import { NgbModal } from "@ng-bootstrap/ng-bootstrap";
+import { DialogResult } from "../../models/dialog/dialog-result.model";
+import { IConfirmDialogService } from "./_interfaces/confirm-dialog-service.interface";
+import { DialogButton } from "../../enums/dialog-button.enum";
+import * as ɵngcc0 from '@angular/core';
+export declare class ConfirmDialogService implements IConfirmDialogService {
+    dialog: NgbModal;
+    constructor(dialog: NgbModal);
+    openConfirmDialog(title: string, message: string): Promise<DialogResult<DialogButton>>;
+    static ɵfac: ɵngcc0.ɵɵFactoryDef<ConfirmDialogService, never>;
+}
+
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiY29uZmlybS1kaWFsb2cuc2VydmljZS5kLnRzIiwic291cmNlcyI6WyJjb25maXJtLWRpYWxvZy5zZXJ2aWNlLmQudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7QUFDQTtBQUNBO0FBQ0E7O0FBQ0E7QUFDQTtBQUNBO0FBQ0E7O0FBQ0EiLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQgeyBOZ2JNb2RhbCB9IGZyb20gXCJAbmctYm9vdHN0cmFwL25nLWJvb3RzdHJhcFwiO1xuaW1wb3J0IHsgRGlhbG9nUmVzdWx0IH0gZnJvbSBcIi4uLy4uL21vZGVscy9kaWFsb2cvZGlhbG9nLXJlc3VsdC5tb2RlbFwiO1xuaW1wb3J0IHsgSUNvbmZpcm1EaWFsb2dTZXJ2aWNlIH0gZnJvbSBcIi4vX2ludGVyZmFjZXMvY29uZmlybS1kaWFsb2ctc2VydmljZS5pbnRlcmZhY2VcIjtcbmltcG9ydCB7IERpYWxvZ0J1dHRvbiB9IGZyb20gXCIuLi8uLi9lbnVtcy9kaWFsb2ctYnV0dG9uLmVudW1cIjtcbmV4cG9ydCBkZWNsYXJlIGNsYXNzIENvbmZpcm1EaWFsb2dTZXJ2aWNlIGltcGxlbWVudHMgSUNvbmZpcm1EaWFsb2dTZXJ2aWNlIHtcbiAgICBkaWFsb2c6IE5nYk1vZGFsO1xuICAgIGNvbnN0cnVjdG9yKGRpYWxvZzogTmdiTW9kYWwpO1xuICAgIG9wZW5Db25maXJtRGlhbG9nKHRpdGxlOiBzdHJpbmcsIG1lc3NhZ2U6IHN0cmluZyk6IFByb21pc2U8RGlhbG9nUmVzdWx0PERpYWxvZ0J1dHRvbj4+O1xufVxuIl19

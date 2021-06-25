@@ -1,0 +1,5 @@
+/**
+ * A regex object to validate zip codes
+ */
+export var ZIP_CODE_REGEX = /^\d{5}(?:[-\s]\d{4})?$/;
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiemlwLWNvZGUtcmVnZXguY29uc3QuanMiLCJzb3VyY2VSb290Ijoibmc6Ly9sZWF0aGVybWFuLWJvb3RzdHJhcC8iLCJzb3VyY2VzIjpbImxpYi91dGlsL3JlZ2V4L19jb25zdGFudHMvemlwLWNvZGUtcmVnZXguY29uc3QudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7O0dBRUc7QUFDSCxNQUFNLENBQUMsSUFBTSxjQUFjLEdBQUcsd0JBQXdCLENBQUMiLCJzb3VyY2VzQ29udGVudCI6WyIvKipcbiAqIEEgcmVnZXggb2JqZWN0IHRvIHZhbGlkYXRlIHppcCBjb2Rlc1xuICovXG5leHBvcnQgY29uc3QgWklQX0NPREVfUkVHRVggPSAvXlxcZHs1fSg/OlstXFxzXVxcZHs0fSk/JC87XG4iXX0=

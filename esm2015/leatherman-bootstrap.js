@@ -1,0 +1,7 @@
+/**
+ * Generated bundle index. Do not edit.
+ */
+export * from './public-api';
+export { AngularModule as ɵa } from './lib/angular.module';
+
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoibGVhdGhlcm1hbi1ib290c3RyYXAuanMiLCJzb3VyY2VzIjpbIm5nOi9sZWF0aGVybWFuLWJvb3RzdHJhcC9sZWF0aGVybWFuLWJvb3RzdHJhcC50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtBQUNBO0FBQ0EsR0FBRztBQUVILGNBQWMsY0FBYyxDQUFDO0FBRTdCLE9BQU8sRUFBQyxhQUFhLElBQUksRUFBRSxFQUFDLE1BQU0sc0JBQXNCLENBQUM7QUFBQyIsInNvdXJjZXNDb250ZW50IjpbIi8qKlxuICogR2VuZXJhdGVkIGJ1bmRsZSBpbmRleC4gRG8gbm90IGVkaXQuXG4gKi9cblxuZXhwb3J0ICogZnJvbSAnLi9wdWJsaWMtYXBpJztcblxuZXhwb3J0IHtBbmd1bGFyTW9kdWxlIGFzIMm1YX0gZnJvbSAnLi9saWIvYW5ndWxhci5tb2R1bGUnOyJdfQ==

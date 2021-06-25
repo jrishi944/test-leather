@@ -1,0 +1,8 @@
+export class SearchFacetFilterProperties {
+    constructor(field, label, isString) {
+        this.field = field;
+        this.label = label;
+        this.isString = isString;
+    }
+}
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoic2VhcmNoLWZhY2V0LWZpbHRlci1wcm9wZXJ0aWVzLm1vZGVsLmpzIiwic291cmNlUm9vdCI6Im5nOi8vbGVhdGhlcm1hbi1ib290c3RyYXAvIiwic291cmNlcyI6WyJsaWIvbW9kZWxzL2R0by9zZWFyY2gvc2VhcmNoLWZhY2V0LWZpbHRlci1wcm9wZXJ0aWVzLm1vZGVsLnRzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBLE1BQU0sT0FBTywyQkFBMkI7SUFDdEMsWUFDUyxLQUFhLEVBQ2IsS0FBYSxFQUNiLFFBQWlCO1FBRmpCLFVBQUssR0FBTCxLQUFLLENBQVE7UUFDYixVQUFLLEdBQUwsS0FBSyxDQUFRO1FBQ2IsYUFBUSxHQUFSLFFBQVEsQ0FBUztJQUN2QixDQUFDO0NBQ0wiLCJzb3VyY2VzQ29udGVudCI6WyJleHBvcnQgY2xhc3MgU2VhcmNoRmFjZXRGaWx0ZXJQcm9wZXJ0aWVzIHtcbiAgY29uc3RydWN0b3IoXG4gICAgcHVibGljIGZpZWxkOiBzdHJpbmcsXG4gICAgcHVibGljIGxhYmVsOiBzdHJpbmcsXG4gICAgcHVibGljIGlzU3RyaW5nOiBib29sZWFuXG4gICkge31cbn1cbiJdfQ==

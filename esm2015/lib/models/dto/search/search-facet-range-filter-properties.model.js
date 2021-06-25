@@ -1,0 +1,11 @@
+export class SearchFacetRangeFilterProperties {
+    constructor(field, label, fromValue, toValue, query, value) {
+        this.field = field;
+        this.label = label;
+        this.fromValue = fromValue;
+        this.toValue = toValue;
+        this.query = query;
+        this.value = value;
+    }
+}
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoic2VhcmNoLWZhY2V0LXJhbmdlLWZpbHRlci1wcm9wZXJ0aWVzLm1vZGVsLmpzIiwic291cmNlUm9vdCI6Im5nOi8vbGVhdGhlcm1hbi1ib290c3RyYXAvIiwic291cmNlcyI6WyJsaWIvbW9kZWxzL2R0by9zZWFyY2gvc2VhcmNoLWZhY2V0LXJhbmdlLWZpbHRlci1wcm9wZXJ0aWVzLm1vZGVsLnRzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBLE1BQU0sT0FBTyxnQ0FBZ0M7SUFDM0MsWUFDUyxLQUFhLEVBQ2IsS0FBYSxFQUNiLFNBQWlCLEVBQ2pCLE9BQWUsRUFDZixLQUFhLEVBQ2IsS0FBYTtRQUxiLFVBQUssR0FBTCxLQUFLLENBQVE7UUFDYixVQUFLLEdBQUwsS0FBSyxDQUFRO1FBQ2IsY0FBUyxHQUFULFNBQVMsQ0FBUTtRQUNqQixZQUFPLEdBQVAsT0FBTyxDQUFRO1FBQ2YsVUFBSyxHQUFMLEtBQUssQ0FBUTtRQUNiLFVBQUssR0FBTCxLQUFLLENBQVE7SUFDbkIsQ0FBQztDQUNMIiwic291cmNlc0NvbnRlbnQiOlsiZXhwb3J0IGNsYXNzIFNlYXJjaEZhY2V0UmFuZ2VGaWx0ZXJQcm9wZXJ0aWVzIHtcbiAgY29uc3RydWN0b3IoXG4gICAgcHVibGljIGZpZWxkOiBzdHJpbmcsXG4gICAgcHVibGljIGxhYmVsOiBzdHJpbmcsXG4gICAgcHVibGljIGZyb21WYWx1ZTogc3RyaW5nLFxuICAgIHB1YmxpYyB0b1ZhbHVlOiBzdHJpbmcsXG4gICAgcHVibGljIHF1ZXJ5OiBzdHJpbmcsXG4gICAgcHVibGljIHZhbHVlOiBzdHJpbmdcbiAgKSB7fVxufVxuIl19
